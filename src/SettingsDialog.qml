@@ -60,7 +60,7 @@ Dialog {
                 elide: Text.ElideRight
                 font.pointSize: platformStyle.fontSizeSmall
                 color: platformStyle.secondaryTextColor
-                text: "Updated on " + lastUpdated
+                text: qsTr("Updated on") + " " + lastUpdated
             }
             
             onClicked: contextMenu.popup()
