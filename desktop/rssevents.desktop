@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=RSS Events
+Icon=general_rss
+Categories=Feeds
+Type=qml
+Exec=/opt/rssevents/qml/SettingsDialog.qml

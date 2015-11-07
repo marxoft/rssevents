@@ -1,0 +1,38 @@
+Source: rssevents
+Section: user/desktop
+Priority: optional
+Maintainer: Stuart Howarth <showarth@marxoft.co.uk>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.7.3
+Homepage: https://github.com/marxoft/rssevents
+
+Package: rssevents
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, hildonevents (>= 0.3.0)
+Description: Fetches RSS feeds and posts events to Hildon Event Feed.
+XB-Maemo-Display-Name: RSS Events
+XB-Maemo-Icon-26:
+ iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+ bWFnZVJlYWR5ccllPAAABMJJREFUeNrsWV1sFFUU/u7MLg1tNUh/YKuW1FZAsSKsBamxug0GImJM
+ eNAHjX+RRIPGRI34ACGaSPx98CeGKC9qDC9oYoxEaBV/1giCUiooNZS2W8DSrW13a9tld+71zMy2
+ 29m7nbLb3alN9iYnM5l7evd855zv3HNvmRACs3komOUjDyAPIA9glg+X3SRjDP82v/BSgVvd5rRh
+ WnR0oN2/57Hrtp/7zK7U2wLY/eLdXsN4fQGhOQrg3KE986LhnnfotZlkMCMAbpey3HRHBIiNOhsC
+ cliBi1XQW2nGAKIxbs4L7ngEFJd77FXNmAMJbxAAHgPmL4G66nnzU3QYCAcgRvrMZ89vwEgwixEQ
+ 0yexZTGuWaLA3IUGIDb2Yel9EMNBiLM/kviB4eDMV6HE0FOIIsC5rRYrLAW79l6AhHf/ANH2OUWl
+ 9/8QAS5FYMocvuo2gISf2gtxZh8RajhdBNkDIEQ8AoPt0Pw7zI+FZeTxcrCS68FKl00OZMkmiKsb
+ wA+/DhHqmBkA4xyIhCB6W+WfcBeBeeqgVPoIzA0pUqsM6h2vQfv1XYiub2cghTBFGb1IwDqboZHo
+ ABQiNCurldTUlVugUTRF1zdORyBeRi9F9cIxaCSs4hYo3mfA5hRbQXifNkF0NmUlAkpaKZSGiG4/
+ tH0PE6DjciRuJmCVjfZrZLWMjpF4XjXUm54wP/Uehxg4TQa2UIUZSv13kUFoB5+FUvcclKp1Vs8t
+ 3wytvw2gNRxKIQ3MNRes3GyPxp4GQ8jbom2vkT4pGXToVcMgpWp9gtiUWioB077e7EAKId6NCj5J
+ zb8VauNbUH1vGuXV1LUK/3knRP9f1up0RQ2UZQ+m1L/UCChpkXiKjYwtWAF1/YdE4HpTP0m0pi0Q
+ F8NWA2ofAeaWyfoi2wDIeBE+C97yAfjpLyH+aUsNYs5lUG/fCaanS7JXiRP8p5dlI3QQGUYgvTJK
+ XSdv2ZX4XlwB5cbHodRslCtN/TZo4W7qUo9al6I9QPx9FGyhNwGgegP4L2/QfhJOm8RpciBJdED+
+ 7Yh9cT9F5JS8uI+M0rvWZD4ce1+O3DV3Jekh2xywqdl9J6nmPwrR96eUTkr9DnmPOH9Y0lWqNybt
+ A7kgsZ2M9kP76iEy7A/rDyxqJHKvlPT5iY+sYEuWAkULckViawrp+auseJJ2U18SSQegfbdVTo+a
+ e6Q0Eh37U1Qxb47LKImyeivUDR9DocZMvfM9KA2vWL0b/N04A1gMW7Q2ZcRE8KRVr9iTmM8uian5
+ 0r1GP2CUvIkLLN4ELKwz5+PCW3dbDSu4XNIxpM8KAJ7V43M5aeZYkWfSKxALSenMIEIBKwjPKpnM
+ oa7Jm0ZkuwpRM2cc2CPyFY0IdZrN3gQR4UDqc/VEHf3wP9GYK9ck5rPPAdMzRqWJg9Cfsaan6KjZ
+ IXs3yThWsUYuv6lak/G5HB1oROB7xHZVTc0aat50sV2W1oq+Pd+BdhrO341mJQLNR86EH1i7GBcC
+ 7eAhZ+9GR6McI1ERmRaATw+c6PBVhlobys/XOn29rhv/yRGh73a2oWd2d++MMb1u6q2mF84P3fsH
+ SfaTjUOZAtAfJXFxeuie7yEZsrUx/4/uPIA8gDyAPIDpjP8EGACt+1CsjE70KQAAAABJRU5ErkJg
+ gg==
