@@ -17,7 +17,7 @@ desktop.files = desktop/rssevents.desktop
 desktop.path = /opt/hildonevents/settings
 
 settings.files = src/SettingsDialog.qml
-settings.path = /opt/rssevents/qml
+settings.path = /opt/rssevents/settings
 
 target.path = /opt/rssevents/bin
 
