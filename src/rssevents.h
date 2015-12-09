@@ -45,6 +45,8 @@ Q_SIGNALS:
 private:    
     void next();
     
+    void readAction();
+    
     void readFeeds();
     void writeFeeds();
     
@@ -54,6 +56,9 @@ private:
     
     int m_index;
     QList< QPair<QString, QDateTime> > m_feeds;
+    
+    QString m_action;
+    bool m_useCustomAction;
 };
     
 #endif // RSSEVENTS_H

@@ -23,14 +23,15 @@
 #include <QNetworkReply>
 #include <QRegExp>
 
-static QString CONFIG_FILE("/home/user/.local/share/data/rssevents/feeds");
+static const QString ACTION_FILE("/home/user/.local/share/data/rssevents/action");
+static const QString FEEDS_FILE("/home/user/.local/share/data/rssevents/feeds");
 
-static QString DEFAULT_ICON("general_rss");
+static const QString DEFAULT_ICON("general_rss");
 
-static QString DBUS_SERVICE("org.hildon.eventfeed");
-static QString DBUS_PATH("/org/hildon/eventfeed");
-static QString DBUS_INTERFACE("org.hildon.eventfeed");
-static QString DBUS_METHOD("addItem");
+static const QString DBUS_SERVICE("org.hildon.eventfeed");
+static const QString DBUS_PATH("/org/hildon/eventfeed");
+static const QString DBUS_INTERFACE("org.hildon.eventfeed");
+static const QString DBUS_METHOD("addItem");
 
 static qlonglong addItemToEventFeed(const QVariantMap &item) {
     QDBusMessage message = QDBusMessage::createMethodCall(DBUS_SERVICE, DBUS_PATH, DBUS_INTERFACE, DBUS_METHOD);
@@ -44,7 +45,8 @@ RssEvents::RssEvents(QObject *parent) :
     m_parser(new FeedParser(this)),
     m_nam(new QNetworkAccessManager(this)),
     m_reply(0),
-    m_index(-1)
+    m_index(-1),
+    m_useCustomAction(false)
 {
 }
 
@@ -62,6 +64,7 @@ void RssEvents::getEvents() {
     
     m_index = -1;
     readFeeds();
+    readAction();
     
     if (m_feeds.isEmpty()) {
         emit finished();
@@ -90,8 +93,25 @@ void RssEvents::next() {
     connect(m_reply, SIGNAL(finished()), this, SLOT(parseFeed()));
 }
 
+void RssEvents::readAction() {
+    QFile file(ACTION_FILE);
+    
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        m_action = QString::fromUtf8(file.readLine());
+        file.close();
+    }
+    
+    if (!m_action.isEmpty()) {
+        m_action.replace("%U", "%1");
+        m_useCustomAction = true;
+    }
+    else {
+        m_useCustomAction = false;
+    }
+}
+
 void RssEvents::readFeeds() {
-    QFile file(CONFIG_FILE);
+    QFile file(FEEDS_FILE);
     
     if (file.open(QFile::ReadOnly | QFile::Text)) {
         while (!file.atEnd()) {
@@ -107,7 +127,7 @@ void RssEvents::readFeeds() {
 }
 
 void RssEvents::writeFeeds() {
-    QFile file(CONFIG_FILE);
+    QFile file(FEEDS_FILE);
     
     if (file.open(QFile::WriteOnly | QFile::Text)) {
         for (int i = 0; i < m_feeds.size(); i++) {
@@ -145,6 +165,10 @@ void RssEvents::parseFeed() {
         item["url"] = m_parser->url();
         item["sourceName"] = QString("rss_events_%1").arg(id);
         item["sourceDisplayName"] = title;
+        
+        if (m_useCustomAction) {
+            item["action"] = m_action.arg(m_parser->url());
+        }
         
         if (addItemToEventFeed(item) == -1) {
             break;
