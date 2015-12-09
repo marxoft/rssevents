@@ -2,6 +2,14 @@
 
 set -e
 
-su -c 'dbus-send --type=method_call --dest=org.hildon.eventfeed /org/hildon/eventfeed org.hildon.eventfeed.removeRefreshAction string:/org/rssevents/bin/rssevents' - user
+case "$1" in
+    purge|remove)
+    su -c 'dbus-send --type=method_call --dest=org.hildon.eventfeed /org/hildon/eventfeed org.hildon.eventfeed.removeRefreshAction string:/opt/rssevents/bin/rssevents' - user
+    ;;
+    
+    *)
+    
+    ;;
+esac
 
 exit 0
